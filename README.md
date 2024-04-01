@@ -29,10 +29,10 @@ Event Management System is a web application that allows users to create, read, 
 
 ## Snapshots
 
-![Screenshot 1](/Screenshot%202024-04-01%20101849.png)
-![Screenshot 2](/Screenshot%202024-04-01%20102021.png)
-![Screenshot 3](/Screenshot%202024-04-01%20102101.png)
-![Screenshot 4](/Screenshot%202024-04-01%20102146.png)
+![Screenshot 1](/image1.png)
+![Screenshot 2](/image2.png)
+![Screenshot 3](/image3.png)
+![Screenshot 4](/image4.png)
 
 ## Getting Started
 
