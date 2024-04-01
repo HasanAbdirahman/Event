@@ -39,7 +39,7 @@ Event Management System is a web application that allows users to create, read, 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/event-management-system.git
+   git clone https://github.com/HasanAbdirahman/Event.git
 2. Navigate to the project
         cd your-project
 3. Install dependencies
