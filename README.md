@@ -6,6 +6,7 @@ Event Management System is a web application that allows users to create, read, 
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Snapshots](#snapshots)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -25,6 +26,14 @@ Event Management System is a web application that allows users to create, read, 
 - Node.js: JavaScript runtime environment.
 - React: Frontend JavaScript library for building user interfaces.
 - React Query: Library for managing server state in React applications.
+
+## Snapshots
+![Event Hero Page](https://imgur.com/XGbBqKQ)
+![Newest Events](https://imgur.com/undefined)
+![DetailPage](https://imgur.com/IvWrYCt)
+![Edit Form Page](https://imgur.com/a/EbbBoCs)
+
+
 
 ## Getting Started
 
