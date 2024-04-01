@@ -28,6 +28,12 @@ Event Management System is a web application that allows users to create, read, 
 - React Query: Library for managing server state in React applications.
 
 ## Snapshots
+
+![Alt text]('./src/assets/Screenshot 2024-04-01 101849.png')
+![Alt text]('./src/assets/Screenshot 2024-04-01 102021.png')
+![Alt text]('./src/assets/Screenshot 2024-04-01 102101.png')
+![Alt text]('./src/assets/Screenshot 2024-04-01 102146.png')
+
 ![Event Hero Page](https://imgur.com/XGbBqKQ)
 ![Newest Events](https://imgur.com/undefined)
 ![DetailPage](https://imgur.com/IvWrYCt)
