@@ -32,7 +32,7 @@ Event Management System is a web application that allows users to create, read, 
 ### Prerequisites
 
 - Node.js installed
-- npm or yarn installed
+- npm installed
 
 ### Installation
 
