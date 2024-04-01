@@ -43,7 +43,8 @@ Event Management System is a web application that allows users to create, read, 
         cd your-project
 3. Install dependencies
       npm install
-4. Usage
+
+ ### Usage
     1. Start Backend Server
           npm start
     2. start front end development
