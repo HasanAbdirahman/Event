@@ -1,0 +1,118 @@
+import { QueryClient } from "@tanstack/react-query";
+export const queryClient = new QueryClient();
+
+export async function fetchEvents({ signal, searchTerm }) {
+  // when u log the output there will be 2 logs
+  // where one is object and another is empty. The object one contains is set there by the
+  // rect query so that it can pass queryKey and signal. Signal helps to abort incase
+  //  the user leaves the page while its loading. so we can use that because we will
+  // data is messed up if the searchTerm is only passed alone in this case the searchquery
+  // comes before the events.
+  let url = "http://localhost:3000/events";
+  if (searchTerm) {
+    url += "?search=" + searchTerm;
+  }
+  const response = await fetch(url, { signal: signal });
+
+  if (!response.ok) {
+    const error = new Error("An error occurred while fetching the events");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const { events } = await response.json();
+
+  return events;
+}
+export async function createNewEvent(eventData) {
+  const response = await fetch(`http://localhost:3000/events`, {
+    method: "POST",
+    body: JSON.stringify(eventData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const error = new Error("An error occurred while creating the event");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const { event } = await response.json();
+
+  return event;
+}
+
+export async function fetchSelectableImages({ signal }) {
+  const response = await fetch(`http://localhost:3000/events/images`, {
+    signal,
+  });
+
+  if (!response.ok) {
+    const error = new Error("An error occurred while fetching the images");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const { images } = await response.json();
+
+  return images;
+}
+
+export const fetchDetailEvent = async ({ signal, id }) => {
+  let url = "http://localhost:3000/events/" + id;
+
+  let response = await fetch(url, { signal });
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred while fetching the detail event"
+    );
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+  let { event } = await response.json();
+  return event;
+};
+
+export const deleteEvent = async ({ id }) => {
+  let response = await fetch("http://localhost:3000/events/" + id, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    const error = new Error("An error occurred while deleting event");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+  return await response.json();
+};
+
+export const editEvent = async ({ id }) => {
+  const url = "http://localhost:3000/events/" + id;
+
+  let response = await fetch(url, {
+    method: "PUT",
+    body: JSON.stringify({
+      title: req.body.title,
+      image: req.body.image,
+      description: req.body.description,
+      date: req.body.date,
+      time: req.body.time,
+      location: req.body.location,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = new Error("An error occurred while updating event");
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+  const { event } = await response.json();
+  return event;
+};
