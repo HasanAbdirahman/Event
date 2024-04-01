@@ -10,8 +10,7 @@ Event Management System is a web application that allows users to create, read, 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
