@@ -10,10 +10,10 @@ export default function NewEventsSection() {
     // The unique key you provide is used internally tanstack query for refetching,
     // caching (request is stored in the future so that it can be used in future ),
     // and sharing your queries throughout your application.
-    queryKey: ["events"],
+    queryKey: ["events", { max: 3 }],
     // A function that returns a promise that:
     // Resolves the data, or Throws an error
-    queryFn: fetchEvents,
+    queryFn: ({ signal }) => fetchEvents({ signal, max: 3 }),
     // staleTime when a user gets out of the page and returns
     // withing the staleTime the queryFn will not rerender
     staleTime: 5000,

@@ -1,16 +1,21 @@
 import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
 
-export async function fetchEvents({ signal, searchTerm }) {
+export async function fetchEvents({ signal, searchTerm, max }) {
   // when u log the output there will be 2 logs
   // where one is object and another is empty. The object one contains is set there by the
   // rect query so that it can pass queryKey and signal. Signal helps to abort incase
   //  the user leaves the page while its loading. so we can use that because we will
   // data is messed up if the searchTerm is only passed alone in this case the searchquery
   // comes before the events.
+  console.log(searchTerm);
   let url = "http://localhost:3000/events";
-  if (searchTerm) {
+  if (searchTerm && max) {
+    url += "?searchTerm=" + searchTerm + "&max=" + max;
+  } else if (searchTerm) {
     url += "?search=" + searchTerm;
+  } else if (max) {
+    url += "?max=" + max;
   }
   const response = await fetch(url, { signal: signal });
 
@@ -92,19 +97,15 @@ export const deleteEvent = async ({ id }) => {
   return await response.json();
 };
 
-export const editEvent = async ({ id }) => {
+export const editEvent = async ({ id, event }) => {
   const url = "http://localhost:3000/events/" + id;
 
   let response = await fetch(url, {
     method: "PUT",
-    body: JSON.stringify({
-      title: req.body.title,
-      image: req.body.image,
-      description: req.body.description,
-      date: req.body.date,
-      time: req.body.time,
-      location: req.body.location,
-    }),
+    body: JSON.stringify({ event }),
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 
   if (!response.ok) {
@@ -113,6 +114,5 @@ export const editEvent = async ({ id }) => {
     error.info = await response.json();
     throw error;
   }
-  const { event } = await response.json();
-  return event;
+  return await response.json();
 };
