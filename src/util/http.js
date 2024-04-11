@@ -9,7 +9,7 @@ export async function fetchEvents({ signal, searchTerm, max }) {
   // data is messed up if the searchTerm is only passed alone in this case the searchquery
   // comes before the events.
   console.log(searchTerm);
-  let url = "http://localhost:3000/events";
+  let url = "https://event-beige.vercel.app/events";
   if (searchTerm && max) {
     url += "?searchTerm=" + searchTerm + "&max=" + max;
   } else if (searchTerm) {
@@ -31,7 +31,7 @@ export async function fetchEvents({ signal, searchTerm, max }) {
   return events;
 }
 export async function createNewEvent(eventData) {
-  const response = await fetch(`http://localhost:3000/events`, {
+  const response = await fetch(`https://event-beige.vercel.app/events`, {
     method: "POST",
     body: JSON.stringify(eventData),
     headers: {
@@ -52,7 +52,7 @@ export async function createNewEvent(eventData) {
 }
 
 export async function fetchSelectableImages({ signal }) {
-  const response = await fetch(`http://localhost:3000/events/images`, {
+  const response = await fetch(`https://event-beige.vercel.app/events/images`, {
     signal,
   });
 
@@ -69,7 +69,7 @@ export async function fetchSelectableImages({ signal }) {
 }
 
 export const fetchDetailEvent = async ({ signal, id }) => {
-  let url = "http://localhost:3000/events/" + id;
+  let url = "https://event-beige.vercel.app/events/" + id;
 
   let response = await fetch(url, { signal });
   if (!response.ok) {
@@ -85,7 +85,7 @@ export const fetchDetailEvent = async ({ signal, id }) => {
 };
 
 export const deleteEvent = async ({ id }) => {
-  let response = await fetch("http://localhost:3000/events/" + id, {
+  let response = await fetch("https://event-beige.vercel.app/events/" + id, {
     method: "DELETE",
   });
   if (!response.ok) {
@@ -98,7 +98,7 @@ export const deleteEvent = async ({ id }) => {
 };
 
 export const editEvent = async ({ id, event }) => {
-  const url = "http://localhost:3000/events/" + id;
+  const url = "https://event-beige.vercel.app/events/" + id;
 
   let response = await fetch(url, {
     method: "PUT",

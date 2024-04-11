@@ -41,7 +41,7 @@ Event Management System is a web application that allows users to create, read, 
    ```bash
    git clone https://github.com/HasanAbdirahman/Event.git
 2. Navigate to the project
-        cd your-project
+        cd {to the main folder}
 3. Install dependencies
       npm install
 
